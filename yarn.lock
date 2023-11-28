@@ -8804,7 +8804,7 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
   "version" "0.11.0"
 
-"react-router-dom@^6.8.1":
+"react-router-dom@^6.20.0":
   "integrity" "sha512-CbcKjEyiSVpA6UtCHOIYLUYn/UJfwzp55va4yEfpk7JBN3GPqWfHrdLkAvNCcpXr8QoihcDMuk0dzWZxtlB/mQ=="
   "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.20.0.tgz"
   "version" "6.20.0"
