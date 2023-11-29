@@ -1,10 +1,29 @@
 import React, { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import MyCalendar from "./MyCalendar";
 
 const App = () => {
-  const navigate = useNavigate();
+  return (
+    <Router>
+      <Background>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/mycalendar" element={<MyCalendar />} />
+        </Routes>
+      </Background>
+    </Router>
+  );
+};
 
+const HomePage = () => {
+  const { loginWithRedirect } = useAuth0();
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -12,15 +31,15 @@ const App = () => {
     };
   }, []);
 
-  const getStarted = () => {
-    navigate("/signin");
-  };
+  const navigate = useNavigate();
 
   return (
-    <Background>
+    <>
       <Title>Your Personal Calendar</Title>
-      <StartButton onClick={getStarted}>Let's Get Started</StartButton>
-    </Background>
+      <StartButton onClick={() => loginWithRedirect()}>
+        Let's Get Started
+      </StartButton>
+    </>
   );
 };
 

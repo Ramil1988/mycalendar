@@ -1,17 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createRoot } from "react-dom/client";
+import { Auth0Provider } from "@auth0/auth0-react";
 import App from "./App";
-import SignInSignUpPage from "./SignUpPage";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
+
 root.render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/signin" element={<SignInSignUpPage />} />
-      </Routes>
-    </Router>
-  </React.StrictMode>
+  <Auth0Provider
+    domain="dev-1qlaqx8pn3fopdzo.us.auth0.com"
+    clientId="LYWQgzlPrGFsqS5qkeBMwfJMhUgDb54s"
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+    }}
+  >
+    <App />
+  </Auth0Provider>
 );
